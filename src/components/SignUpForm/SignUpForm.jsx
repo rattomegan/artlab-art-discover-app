@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { signUp } from "../../utilities/users-service";
 
 export default function SignUpForm({ setUser }) {
@@ -10,7 +9,7 @@ export default function SignUpForm({ setUser }) {
     confirm: "",
   });
   const [error, setError] = useState('');
-  const navigate = navigate();
+
 
   const handleChange = (evt) => {
     setUserData({...userData, [evt.target.name]: evt.target.value,});
@@ -31,7 +30,7 @@ export default function SignUpForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       setUser(user);
-      navigate('/')
+
     } catch {
       // An error occurred...
       setError("Sign Up Failed - Try Again");
