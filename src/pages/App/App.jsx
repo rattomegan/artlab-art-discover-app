@@ -24,7 +24,7 @@ function App() {
         <>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/signup" element={<AuthPage setUser={setUser} />} />
+            <Route path="/:signup" element={<AuthPage setUser={setUser} />} />
           </Routes>
         </>
 
