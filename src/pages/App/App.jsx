@@ -18,12 +18,16 @@ function App() {
           <Routes>
             {/* <Route path="/orders/new" element={<NewOrderPage/>} />
             <Route path="/orders" element={<OrderHistoryPage />} /> */}
-            <Route path="/" element={<HomePage />} />
           </Routes>
         </>
         : 
-        // <AuthPage setUser={setUser} />
-        <HomePage />
+        <>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<AuthPage setUser={setUser} />} />
+          </Routes>
+        </>
+
       }
     </main>);
 }
