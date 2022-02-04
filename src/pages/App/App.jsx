@@ -4,6 +4,7 @@ import { getUser } from "../../utilities/users-service";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "../AuthPage/AuthPage";
 import WelcomePage from "../WelcomePage/WelcomePage";
+import HomePage from "../HomePage/HomePage"
 import NavBar from "../../components/NavBar/NavBar"
 
 function App() {
@@ -16,15 +17,15 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser}/>
           <Routes>
-            {/* <Route path="/orders/new" element={<NewOrderPage/>} />
-            <Route path="/orders" element={<OrderHistoryPage />} /> */}
+            <Route path="/" element={<HomePage/>} />
+            {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
           </Routes>
         </>
         : 
         <>
+          <WelcomePage />
           <Routes>
-            <Route path="/" element={<WelcomePage />} />
-            <Route path="/:signup" element={<AuthPage setUser={setUser} />} />
+            <Route path="/signup" element={<AuthPage setUser={setUser} />} />
           </Routes>
         </>
 
