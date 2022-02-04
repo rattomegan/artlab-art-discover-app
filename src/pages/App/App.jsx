@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getUser } from "../../utilities/users-service";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "../AuthPage/AuthPage";
-import HomePage from "../HomePage/HomePage";
+import WelcomePage from "../WelcomePage/WelcomePage";
 import NavBar from "../../components/NavBar/NavBar"
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         : 
         <>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<WelcomePage />} />
             <Route path="/:signup" element={<AuthPage setUser={setUser} />} />
           </Routes>
         </>
