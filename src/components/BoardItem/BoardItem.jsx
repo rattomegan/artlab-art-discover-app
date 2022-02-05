@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "./BoardItem.css"
+import { Link } from "react-router-dom";
+import "./BoardItem.css";
 
 function BoardItem({ itemID }) {
   const [boardItem, setBoardItem] = useState('')
@@ -16,9 +17,11 @@ function BoardItem({ itemID }) {
 
   return (
     <>
-      <img src={boardItem.primaryImageSmall}
-        className="BoardItem"
-      />
+      <Link to={`/${boardItem.objectID}`}>
+        <img src={boardItem.primaryImageSmall}
+          className="BoardItem"
+        />
+      </Link>
     </>
 
  
