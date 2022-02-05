@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import BoardItem from "../BoardItem/BoardItem"
+import "./Board.css"
 
 function Board() {
-  const [searchTerm, setSearchTerm] = useState('random');
+  const [searchTerm, setSearchTerm] = useState('sunflower');
   const [allItems, setAllItems] = useState([])
 
 
@@ -15,10 +17,14 @@ function Board() {
     })
   }, [])
 
+  
 
   return (
-    <div>
+    <div className="board-container">
       <h1>board component</h1>
+      {allItems.map((item, i) => {
+        return <BoardItem itemID={item} key={item} />
+      })}
     </div>
   )
 }

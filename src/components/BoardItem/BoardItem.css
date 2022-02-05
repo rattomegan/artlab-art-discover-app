@@ -1,0 +1,11 @@
+.BoardItem {
+  height: 100px;
+  /* width: 20rem; */
+  border-radius: 0.8rem;
+
+}
+
+.board-item-container {
+  display: flex;
+  flex-wrap: wrap;
+}
