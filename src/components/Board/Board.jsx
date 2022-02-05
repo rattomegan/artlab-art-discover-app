@@ -21,7 +21,6 @@ function Board() {
 
   return (
     <div className="board-container">
-      <h1>board component</h1>
       {allItems.map((item, i) => {
         return <BoardItem itemID={item} key={item} />
       })}

@@ -1,0 +1,24 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+}
+
+.navbar-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.navbar-link:link,
+.navbar-link:visited {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.navbar-link:hover,
+.navbar-link:active {
+  color: #aaa;
+}
