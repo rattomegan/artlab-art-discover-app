@@ -1,4 +1,16 @@
-function SearchBar({ searchTerm, setSearchTerm, handleSearch }) {
+import { useState } from "react";
+
+function SearchBar({ fetchSearch }) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+
+  function handleSearch(e) {
+    e.preventDefault()
+    alert('clicked')
+    fetchSearch(searchTerm)
+  }
+
+
   return (
     <div>
       <input 
@@ -10,7 +22,7 @@ function SearchBar({ searchTerm, setSearchTerm, handleSearch }) {
       />
       <button 
         className="btn" 
-        onClick={handleSearch}
+        onChange={handleSearch}
       >
         Search
       </button>
