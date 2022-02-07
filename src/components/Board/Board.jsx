@@ -1,24 +1,7 @@
-import { useState, useEffect } from "react";
 import BoardItem from "../BoardItem/BoardItem"
 import "./Board.css"
 
-function Board() {
-  const [searchTerm, setSearchTerm] = useState('sunflower');
-  const [allItems, setAllItems] = useState([])
-
-
-  // fetch objectIDs from API
-  useEffect(() => {
-    fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${searchTerm}`)
-    .then(res => res.json())
-    .then(allItems => {
-      setAllItems(allItems.objectIDs)
-      console.log(allItems.objectIDs);
-    })
-  }, [])
-
-  
-
+function Board({ allItems }) {
   return (
     <div className="board-container">
       {allItems.map((item, i) => {
