@@ -11,7 +11,6 @@ function BoardItem({ itemID }) {
     .then(res => res.json())
     .then(boardItem => {
       setBoardItem(boardItem)
-      console.log(boardItem);
     })
   }, [])
 

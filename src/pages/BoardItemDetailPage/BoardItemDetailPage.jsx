@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function BoardItemDetailPage () {
   const [itemDetail, setItemDetail] = useState('')
@@ -29,6 +29,8 @@ function BoardItemDetailPage () {
             <p>{itemDetail.artistDisplayName}</p>
             <p>{itemDetail.artistDisplayBio}</p>
           </div>
+          <button>Save to Favorites</button>
+          <Link to="/">Back to home</Link>
         </div>
       :
         "Loading..."
