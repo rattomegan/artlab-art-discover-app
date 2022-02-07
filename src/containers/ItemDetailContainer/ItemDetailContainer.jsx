@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function BoardItemDetailPage () {
+function ItemDetailContainer () {
   const [itemDetail, setItemDetail] = useState('')
   let { objectID } = useParams();
 
@@ -18,7 +18,7 @@ function BoardItemDetailPage () {
   return (
     <>
       {itemDetail ? 
-        <div className="BoardItemDetailPage container">
+        <div className="ItemDetailContainer container">
           <div className="item-img">
             <img src={`${itemDetail.primaryImageSmall}`} alt={itemDetail.title} />
           </div>
@@ -37,4 +37,4 @@ function BoardItemDetailPage () {
   )
 }
 
-export default BoardItemDetailPage
+export default ItemDetailContainer;
