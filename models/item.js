@@ -5,8 +5,13 @@ const itemSchema = new Schema({
   apiID: {type: Number, required: true},
   title: String,
   artist: String,
+  artistBio: String,
+  objectName: String,
+  objectDate: String,
   imagePrimary: String,
-  imageSmall: String
+  imageSmall: String,
+  medium: String,
+  dimensions: String,
 })
 
 

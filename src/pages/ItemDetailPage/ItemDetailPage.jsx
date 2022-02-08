@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import * as boardsAPI from "../../utilities/boards-api"
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
+
+
 
 
 function ItemDetailPage() {
   const [itemDetail, setItemDetail] = useState('')
+  const [favorite, setFavorite] = useState(false)
   let { objectID } = useParams();
 
   useEffect(() => {
@@ -16,10 +20,19 @@ function ItemDetailPage() {
     })
   }, [])
 
+  async function handleAddToFavorites(itemDetail) {
+    const board = await boardsAPI.addItemToBoard(itemDetail)
+    setFavorite(true);
+    // if bord includes item don't show the button - or insteaed show "added to favorites"
+  }
+
   return (
     <>
       {itemDetail ? 
-        <ItemDetail itemDetail={itemDetail} />
+        <ItemDetail 
+          itemDetail={itemDetail} 
+          handleAddToFavorites={handleAddToFavorites}
+        />
       :
         "Loading..."
       }

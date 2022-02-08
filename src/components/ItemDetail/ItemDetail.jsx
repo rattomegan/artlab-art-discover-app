@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 
-function ItemDetail({ itemDetail}) {
+function ItemDetail({ itemDetail, handleAddToFavorites }) {
   return (
     <div className="ItemDetail container">
       <div className="item-img">
@@ -15,7 +15,7 @@ function ItemDetail({ itemDetail}) {
         <p>{itemDetail.artistDisplayName}</p>
         <p>{itemDetail.artistDisplayBio}</p>
       </div>
-      <button>Save to Favorites</button>
+      <button onClick={() => handleAddToFavorites(itemDetail)}>Save to Favorites</button>
       <Link to="/">Back to home</Link>
     </div>
   )
