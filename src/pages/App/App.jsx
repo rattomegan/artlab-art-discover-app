@@ -7,7 +7,7 @@ import WelcomePage from "../WelcomePage/WelcomePage";
 import MainPage from "../MainPage/MainPage"
 import NavBar from "../../components/NavBar/NavBar"
 import BoardItem from "../../components/BoardItem/BoardItem"
-import BoardItemDetailPage from "../BoardItemDetailPage/BoardItemDetailPage"
+import ItemDetailPage from "../ItemDetailPage/ItemDetailPage"
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -20,7 +20,7 @@ function App() {
           <NavBar user={user} setUser={setUser}/>
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/:objectID" element={<BoardItemDetailPage />} />
+            <Route path="/:objectID" element={<ItemDetailPage />} />
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
           </Routes>
         </>
