@@ -8,6 +8,7 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
 function ItemDetailPage() {
   const [itemDetail, setItemDetail] = useState('')
+  const [favorite, setFavorite] = useState(false)
   let { objectID } = useParams();
 
   useEffect(() => {
@@ -21,7 +22,7 @@ function ItemDetailPage() {
 
   async function handleAddToFavorites(itemDetail) {
     const board = await boardsAPI.addItemToBoard(itemDetail)
-    console.log(board)
+    setFavorite(true);
     // if bord includes item don't show the button - or insteaed show "added to favorites"
   }
 
