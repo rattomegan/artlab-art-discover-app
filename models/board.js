@@ -22,11 +22,13 @@ boardSchema.statics.getBoard = function(userId) {
 }
 
 boardSchema.methods.addItemToBoard = async function(itemDetail) {
-  console.log('item detail', itemDetail)
   const board = this;
-  const boardItem = board.items.find(item => item.apiID.equals(itemDetail.objectID));
-  if (boardItem) {
-    alert('item already added to favorites');
+  const itemDb = await mongoose.model('Item').findOne({ apiID: itemDetail.objectID})
+  if (itemDb) {
+    const boardItem = await board.items.find(item => item.equals(itemDb._id));
+    if (boardItem) {
+      console.log('item already added to favorites');
+    }
   } else {
     let item = await mongoose.model('Item').findOne({ apiID: itemDetail.objectID});
     if (item) {
