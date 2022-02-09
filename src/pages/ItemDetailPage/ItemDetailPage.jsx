@@ -3,9 +3,6 @@ import { useParams } from "react-router-dom";
 import * as boardsAPI from "../../utilities/boards-api"
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
-
-
-
 function ItemDetailPage() {
   const [itemDetail, setItemDetail] = useState('')
   const [itemFromDb, setItemFromDb] = useState(null)

@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import Board from "../../components/Board/Board"
 import SearchBar from "../../components/SearchBar/SearchBar"
 
-function MainPage() {
-  const [searchTerm, setSearchTerm] = useState('sunflowers');
+function MainPage({ searchTerm, setSearchTerm }) {
   const [allItems, setAllItems] = useState([]);
 
   useEffect(() => {

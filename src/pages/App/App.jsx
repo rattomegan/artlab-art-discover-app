@@ -8,9 +8,11 @@ import MainPage from "../MainPage/MainPage"
 import NavBar from "../../components/NavBar/NavBar"
 import BoardItem from "../../components/BoardItem/BoardItem"
 import ItemDetailPage from "../ItemDetailPage/ItemDetailPage"
+import FavoritesPage from "../FavoritesPage/FavoritesPage"
 
 function App() {
   const [user, setUser] = useState(getUser());
+  const [searchTerm, setSearchTerm] = useState('sunflowers');
 
   return (
     <main className="App">
@@ -19,7 +21,8 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser}/>
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<MainPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/:objectID" element={<ItemDetailPage />} />
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
           </Routes>

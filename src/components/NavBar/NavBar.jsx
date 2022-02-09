@@ -15,7 +15,7 @@ function NavBar({ user, setUser }) {
     <nav className="NavBar">
       <div className="navbar-group">
         <Link to="/" className="navbar-link">Home</Link>
-        <Link to="/boards" className="navbar-link">My Boards</Link>
+        <Link to="/favorites" className="navbar-link">My Favorites</Link>
       </div>
       <div className="navbar-group">
         <p>Welcome, {user.name}!</p>
