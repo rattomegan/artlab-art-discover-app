@@ -8,7 +8,7 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
 function ItemDetailPage() {
   const [itemDetail, setItemDetail] = useState('')
-  const [favorite, setFavorite] = useState(false)
+  const [itemFromDb, setItemFromDb] = useState('')
   let { objectID } = useParams();
 
   useEffect(() => {
@@ -17,12 +17,20 @@ function ItemDetailPage() {
     .then(itemDetail => {
       setItemDetail(itemDetail)
       console.log(itemDetail);
-    })
+    });
+    fetchItemFromDb(objectID)
   }, [])
+
+  async function fetchItemFromDb(objectID) {
+    const itemFromDb = await boardsAPI.findItemInDb(objectID);
+    console.log('detail page', itemFromDb)
+    setItemFromDb(itemFromDb)
+  }
 
   async function handleAddToFavorites(itemDetail) {
     const board = await boardsAPI.addItemToBoard(itemDetail)
-    setFavorite(true);
+    // fetchItemFromDb(itemDetail.objectID)
+    console.log('object sent back', board)
     // if bord includes item don't show the button - or insteaed show "added to favorites"
   }
 
@@ -30,7 +38,8 @@ function ItemDetailPage() {
     <>
       {itemDetail ? 
         <ItemDetail 
-          itemDetail={itemDetail} 
+          itemDetail={itemDetail}
+          itemFromDb={itemFromDb} 
           handleAddToFavorites={handleAddToFavorites}
         />
       :
