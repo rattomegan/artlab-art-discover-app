@@ -23,7 +23,7 @@ async function findItemInBoard(req, res) {
   res.json(itemDb)
 }
 
-
+// To delete the item from favorites - find item and delete? or first find the item in the model, then remove()
 
 
 
