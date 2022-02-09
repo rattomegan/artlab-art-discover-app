@@ -32,9 +32,9 @@ function ItemDetailPage() {
     fetchItemFromDb(itemDetail.objectID)
   }
 
-  async function handleRemoveFromFavorites(itemDetail){
-    return null
-    // setItemFromDb(null)
+  async function handleRemoveFromFavorites() {
+    await boardsAPI.removeItemFromBoard(itemFromDb._id)
+    setItemFromDb(null)
   }
     
 

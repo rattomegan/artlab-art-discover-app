@@ -69,5 +69,4 @@ boardSchema.methods.findItemFromBoard = async function(objectID) {
 }
 
 
-
 module.exports = mongoose.model('Board', boardSchema)

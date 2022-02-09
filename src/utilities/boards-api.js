@@ -11,3 +11,9 @@ export function addItemToBoard(itemDetail) {
 export function findItemInDb(objectID) {
   return sendRequest(`${BASE_URL}/board/items/${objectID}`, 'GET');
 }
+
+// Remove an item from the board
+export function removeItemFromBoard(itemID) {
+  console.log('api', itemID)
+  return sendRequest(`${BASE_URL}/board/items/${itemID}`, 'DELETE');
+}

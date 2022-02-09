@@ -3,7 +3,8 @@ const Item = require('../../models/item');
 
 module.exports = {
   addToBoard,
-  findItemInBoard
+  findItemInBoard,
+  deleteItemFromBoard
 }
 
 async function addToBoard(req, res) {
@@ -24,6 +25,13 @@ async function findItemInBoard(req, res) {
 }
 
 // To delete the item from favorites - find item and delete? or first find the item in the model, then remove()
+
+async function deleteItemFromBoard(req, res) {
+  const board = await Board.getBoard(req.user._id);
+  board.items.remove( {_id: req.params.id } )
+  board.save();
+  res.json(board);
+}
 
 
 
