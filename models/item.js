@@ -4,14 +4,16 @@ const Schema = mongoose.Schema;
 const itemSchema = new Schema({
   apiID: {type: Number, required: true},
   title: String,
-  artist: String,
-  artistBio: String,
+  artistDisplayName: String,
+  artistDisplayBio: String,
   objectName: String,
   objectDate: String,
-  imagePrimary: String,
-  imageSmall: String,
+  primaryImage: String,
+  primaryImageSmall: String,
   medium: String,
   dimensions: String,
+}, {
+  timestamps: true
 })
 
 

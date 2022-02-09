@@ -7,6 +7,8 @@ const boardSchema = new Schema({
   name: {type: String, required: true, default: 'Favorites'},
   public: {type: Boolean, default: false},
   items: [{type: Schema.Types.ObjectId, ref:'Item'}]
+}, {
+  timestamps: true
 })
 
 
