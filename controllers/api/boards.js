@@ -19,7 +19,6 @@ async function addToBoard(req, res) {
 
 async function findItemInBoard(req, res) {
   const board = await Board.getBoard(req.user._id);
-  // console.log('board: ', board) // It is finding the board
   const itemDb = await board.findItemFromBoard(req.params.id)
 
   res.json(itemDb)
@@ -39,14 +38,3 @@ async function indexItems(req, res) {
   const items = await board.getItemDetails()
   res.json(items)
 }
-
-
-// async function findItemInBoard(req, res) {
-//   const itemDb = await Item.find({ apiID: req.params.id })
-//   console.log('item: ', itemDb) // It is finding the item
-//   const board = await Board.getBoard(req.user._id);
-//   console.log('board: ', board) // It is finding the board
-//   const boardItem = await board.items.find(item => item.equals(itemDb._id));
-//   console.log('boardItem ', boardItem) // This is returning undefined
-//   res.json(boardItem)
-// }
