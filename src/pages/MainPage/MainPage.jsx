@@ -13,7 +13,7 @@ function MainPage({ searchTerm, setSearchTerm }) {
   async function handleFetchAllItems(searchTerm) {
     const allItems = await metAPI.fetchAllItems(searchTerm)
     console.log(allItems)
-    setAllItems(allItems)
+    setAllItems(allItems.items)
   }
 
 
