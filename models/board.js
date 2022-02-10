@@ -42,12 +42,12 @@ boardSchema.methods.addItemToBoard = async function(itemDetail) {
     item = await mongoose.model('Item').create({
       apiID: itemDetail.objectID,
       title: itemDetail.title,
-      artist: itemDetail.artistDisplayName,
-      artistBio: itemDetail.artistDisplayBio,
+      artistDisplayName: itemDetail.artistDisplayName,
+      artistDisplayBio: itemDetail.artistDisplayBio,
       objectName: itemDetail.objectName,
       objectDate: itemDetail.objectDate,
-      imagePrimary: itemDetail.primaryImage,
-      imageSmall: itemDetail.primaryImageSmall,
+      primaryImage: itemDetail.primaryImage,
+      primaryImageSmall: itemDetail.primaryImageSmall,
       medium: itemDetail.medium,
       dimensions: itemDetail.dimensions,
     })
