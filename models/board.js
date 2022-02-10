@@ -26,7 +26,7 @@ boardSchema.statics.getBoard = function(userId) {
 boardSchema.methods.addItemToBoard = async function(itemDetail) {
   const board = this;
   // look for item in DB
-  const itemDb = await mongoose.model('Item').findOne({ apiID: itemDetail.objectID})
+  const itemDb = await mongoose.model('Item').findOne({ objectID: itemDetail.objectID})
   if (itemDb) {
     // if item exists, look for it in the board
     const boardItem = await board.items.find(item => item.equals(itemDb._id));
@@ -58,7 +58,7 @@ boardSchema.methods.addItemToBoard = async function(itemDetail) {
 
 boardSchema.methods.findItemFromBoard = async function(objectID) {
   const board = this;
-  const itemDb = await mongoose.model('Item').findOne({ apiID: objectID })
+  const itemDb = await mongoose.model('Item').findOne({ objectID: objectID })
   if (itemDb) {
     const boardItem = await board.items.find(item => item.equals(itemDb._id));
     if (boardItem) {
