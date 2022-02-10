@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./BoardItem.css";
 
 function BoardItem({ item }) {
-  const [boardItem, setBoardItem] = useState('')
-  const [link, setLink] = useState(item)
+  // const [boardItem, setBoardItem] = useState('')
 
-  useEffect(() => {
-    if (typeof(item) === 'number') {
-      fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${item}`)
-      .then(res => res.json())
-      .then(boardItem => {
-        setBoardItem(boardItem)
-      })
-    } else {
-      setBoardItem(item)
-      setLink(item.apiID)
-      return console.log('boardItem', item._id)
-    }
-  }, [])
+  // useEffect(() => {
+  //     setBoardItem(item)
+  // }, [])
+
+
+  // return (
+  //   <>
+  //     <Link to={`/${boardItem.objectID}`}>
+  //       <img src={boardItem.primaryImageSmall}
+  //         className="BoardItem"
+  //       />
+  //     </Link>
+  //   </>
+  // )
 
   return (
     <>
-      <Link to={`/${link}`}>
-        <img src={boardItem.primaryImageSmall}
+      <Link to={`/${item.objectID}`}>
+        <img src={item.primaryImageSmall}
           className="BoardItem"
         />
       </Link>

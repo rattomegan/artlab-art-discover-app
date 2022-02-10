@@ -17,7 +17,7 @@ function SearchBar({ searchTerm, setSearchTerm, fetchAllItems }) {
       />
       <button 
         className="btn" 
-        onClick={fetchAllItems}
+        onClick={() => {fetchAllItems(searchTerm)}}
       >
         Search
       </button>

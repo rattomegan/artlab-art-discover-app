@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
-  apiID: {type: Number, required: true},
+  objectID: {type: Number, required: true},
   title: String,
   artistDisplayName: String,
   artistDisplayBio: String,

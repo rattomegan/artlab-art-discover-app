@@ -40,7 +40,7 @@ boardSchema.methods.addItemToBoard = async function(itemDetail) {
     } 
   } else {
     item = await mongoose.model('Item').create({
-      apiID: itemDetail.objectID,
+      objectID: itemDetail.objectID,
       title: itemDetail.title,
       artistDisplayName: itemDetail.artistDisplayName,
       artistDisplayBio: itemDetail.artistDisplayBio,

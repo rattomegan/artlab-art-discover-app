@@ -1,19 +1,10 @@
-const BASE_URL = 'https://collectionapi.metmuseum.org/public/collection/v1';
-const SEARCH = '/search?';
 
-  async function fetchAllItems(searchTerm) {
-    const res = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${searchTerm}`)
-    const shortItemList = res.objectIDs.splice(0, 50)
-    return shortItemList
-    // .then(allItems => {
-    //   const shortItemList = allItems.objectIDs.splice(0, 50)
-    // })
-    // return shortItemList;
-  }
-
-async function fetchItemByID(itemID) {
-  console.log(itemID)
-  const res = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${itemID}`)
-  // this will return the data than I can then set to a variable in my front end function
-  return res.json();
+export async function fetchAllItems(searchTerm) {
+  const res  = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/search?q=${searchTerm}`).then(res => res.json())
+  const objectIDs = res.objectIDs.splice(0, 50)
+  const promiseArray = objectIDs.map((id) => {
+    return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.json())
+  })
+  const allItems = await Promise.all(promiseArray)
+  return allItems
 }

@@ -12,7 +12,7 @@ function FavoritesPage() {
 
   async function fetchFavoritesfromDb() {
     const allItems = await boardsAPI.fetchFavorites()
-    // console.log(allItems)
+    console.log(allItems)
     setAllItems(allItems)
   }
 
