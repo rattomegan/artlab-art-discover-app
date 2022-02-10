@@ -4,7 +4,7 @@ import Board from "../../components/Board/Board"
 import SearchBar from "../../components/SearchBar/SearchBar"
 
 function MainPage({ searchTerm, setSearchTerm }) {
-  const [allItems, setAllItems] = useState([]);
+  const [allItems, setAllItems] = useState(null);
 
   useEffect(() => {
     handleFetchAllItems(searchTerm)
@@ -20,8 +20,12 @@ function MainPage({ searchTerm, setSearchTerm }) {
   return (
     <main>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} fetchAllItems={metAPI.fetchAllItems} />
-      <h1>User's home page</h1>
-      <Board allItems={allItems}/>
+      {allItems ?
+        <Board allItems={allItems}/>
+      :
+        <h2>Loading...</h2>
+      }
+      
     </main>
   )
 };
