@@ -12,3 +12,4 @@ function Board({ allItems }) {
 }
 
 export default Board;
+

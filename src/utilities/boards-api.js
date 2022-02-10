@@ -14,6 +14,9 @@ export function findItemInDb(objectID) {
 
 // Remove an item from the board
 export function removeItemFromBoard(itemID) {
-  console.log('api', itemID)
   return sendRequest(`${BASE_URL}/board/items/${itemID}`, 'DELETE');
+}
+
+export function fetchFavorites() {
+  return sendRequest(`${BASE_URL}/board/items`, 'GET');
 }

@@ -11,5 +11,8 @@ router.get('/board/items/:id', boardsCtrl.findItemInBoard)
 // DELETE /api/boards/board/:id
 router.delete('/board/items/:id', boardsCtrl.deleteItemFromBoard)
 
+// GET /api/boards/board/items
+router.get('/board/items', boardsCtrl.indexItems)
+
 
 module.exports = router;

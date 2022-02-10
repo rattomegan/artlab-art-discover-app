@@ -4,7 +4,8 @@ const Item = require('../../models/item');
 module.exports = {
   addToBoard,
   findItemInBoard,
-  deleteItemFromBoard
+  deleteItemFromBoard,
+  indexItems
 }
 
 async function addToBoard(req, res) {
@@ -24,7 +25,6 @@ async function findItemInBoard(req, res) {
   res.json(itemDb)
 }
 
-// To delete the item from favorites - find item and delete? or first find the item in the model, then remove()
 
 async function deleteItemFromBoard(req, res) {
   const board = await Board.getBoard(req.user._id);
@@ -34,7 +34,11 @@ async function deleteItemFromBoard(req, res) {
 }
 
 
-
+async function indexItems(req, res) {
+  const board = await Board.getBoard(req.user._id);
+  const items = await board.getItemDetails()
+  res.json(items)
+}
 
 
 // async function findItemInBoard(req, res) {

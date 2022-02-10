@@ -70,5 +70,18 @@ boardSchema.methods.findItemFromBoard = async function(objectID) {
   }
 }
 
+boardSchema.methods.getItemDetails = async function() {
+  const board = this
+  let details = []
+  const items = await board.items
+  for (let i = 0; i < items.length; i++) {
+    let item = await mongoose.model('Item').find({_id: items[i]._id})
+    console.log('item in for loop', item);
+    details.push(item[0])
+  }
+  console.log('details post loop', details)
+  return details
+}
+
 
 module.exports = mongoose.model('Board', boardSchema)
