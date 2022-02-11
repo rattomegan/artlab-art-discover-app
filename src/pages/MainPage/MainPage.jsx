@@ -11,8 +11,6 @@ function MainPage({ searchTerm, setSearchTerm }) {
   const ITEMS_PER_PAGE = 30 // 
 
 
-
-
   useEffect(() => {
     handleFetchAllItems(searchTerm, currentPage)
   }, [])
@@ -28,8 +26,10 @@ function MainPage({ searchTerm, setSearchTerm }) {
     setAllItems(allItems.items)
   }
 
-function handlePageClick(page) {
+function handlePageClick(page) { 
+    console.log('clicked page', page)
     setCurrentPage(page);
+    console.log('current page', currentPage)
     setAllItems(null);
     handleFetchAllItems(searchTerm, currentPage)
   }
