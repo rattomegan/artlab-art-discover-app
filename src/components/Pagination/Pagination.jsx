@@ -10,10 +10,10 @@ function Pagination({ totalItems, handlePageClick}) {
   return (
     <div>
       <ul className="Pagination">
-        {pageNumbers.map(number => (
-          <li key={number} className="page-item">
-            <button className="page-btn" onClick={() => handlePageClick(number)}>
-              {number}
+        {pageNumbers.map(page => (
+          <li key={page} className="page-item">
+            <button className="page-btn" onClick={() => handlePageClick(page)}>
+              {page}
             </button>
           </li>
         ))}

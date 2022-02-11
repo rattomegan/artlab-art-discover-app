@@ -15,7 +15,8 @@ function MainPage({ searchTerm, setSearchTerm }) {
     handleFetchAllItems(searchTerm, currentPage)
   }, [])
 
-  async function handleFetchAllItems(searchTerm, currentPage) {
+  async function handleFetchAllItems(searchTerm) {
+    console.log('current page', currentPage)
     // this starts at 30
     const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
     // this starts at 0
@@ -29,9 +30,8 @@ function MainPage({ searchTerm, setSearchTerm }) {
 function handlePageClick(page) { 
     console.log('clicked page', page)
     setCurrentPage(page);
-    console.log('current page', currentPage)
     setAllItems(null);
-    handleFetchAllItems(searchTerm, currentPage)
+    handleFetchAllItems(searchTerm)
   }
 
   return (
