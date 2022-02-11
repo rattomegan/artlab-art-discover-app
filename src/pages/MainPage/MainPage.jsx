@@ -8,18 +8,20 @@ function MainPage({ searchTerm, setSearchTerm }) {
   const [allItems, setAllItems] = useState(null);
   const [totalItems, setTotalItems] = useState(0)
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(30); // I may not need this variable
+  const ITEMS_PER_PAGE = 30 // 
 
 
 
 
   useEffect(() => {
     handleFetchAllItems(searchTerm)
-  }, [])
+  }, [currentPage])
 
   async function handleFetchAllItems(searchTerm) {
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage
+    // this starts at 30
+    const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+    // this starts at 0
+    const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
     const allItems = await metAPI.fetchAllItems(searchTerm, indexOfFirstItem, indexOfLastItem)
     console.log(allItems)
     setTotalItems(allItems.total)
