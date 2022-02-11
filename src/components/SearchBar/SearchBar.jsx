@@ -1,9 +1,5 @@
-function SearchBar({ searchTerm, setSearchTerm, fetchAllItems }) {
+function SearchBar({ searchTerm, setSearchTerm, parameter, setParameter, fetchAllItems }) {
 
-  function handleSearch(e) {
-    e.preventDefault()
-    alert('clicked')
-  }
 
 
   return (
@@ -15,12 +11,28 @@ function SearchBar({ searchTerm, setSearchTerm, fetchAllItems }) {
         value={searchTerm} 
         onChange={e => setSearchTerm(e.target.value)}
       />
+
+      <div>
+      <input 
+        type="radio" 
+        value="Title"
+        name="title" 
+        value={searchTerm} 
+        onChange={e => {setParameter(e.target.name)}}
+      />Title
+
+      </div>
+
+
+
       <button 
         className="btn" 
         onClick={() => {fetchAllItems(searchTerm)}}
       >
         Search
       </button>
+
+
     </div>
   )
 }

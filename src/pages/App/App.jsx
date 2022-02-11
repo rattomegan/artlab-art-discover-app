@@ -13,6 +13,7 @@ import FavoritesPage from "../FavoritesPage/FavoritesPage"
 function App() {
   const [user, setUser] = useState(getUser());
   const [searchTerm, setSearchTerm] = useState('sunflowers');
+  const [parameterName, setParameterName] = useState(null);
 
   return (
     <main className="App">
@@ -21,7 +22,7 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser}/>
           <Routes>
-            <Route path="/" element={<MainPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} />} />
+            <Route path="/" element={<MainPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} parameterName={parameter} setParameterName={setParameter} />} />
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/:objectID" element={<ItemDetailPage />} />
             {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
