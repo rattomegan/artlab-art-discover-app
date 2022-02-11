@@ -26,8 +26,8 @@ function MainPage({ searchTerm, setSearchTerm }) {
     setAllItems(allItems.items)
   }
 
-  async function handlePageClick(page) {
-    await setCurrentPage(page)
+function handlePageClick(page) {
+    setCurrentPage(page)
     handleFetchAllItems(searchTerm)
   }
 
