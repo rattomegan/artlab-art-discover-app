@@ -1,5 +1,9 @@
-function SearchBar({ searchTerm, setSearchTerm, parameter, setParameter, fetchAllItems }) {
+function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName, setParameterValue, fetchAllItems }) {
 
+  function handleSelectParameter(e) {
+    setParameterName(e.target.name);
+    setParameterValue(true);
+  }
 
 
   return (
@@ -18,7 +22,7 @@ function SearchBar({ searchTerm, setSearchTerm, parameter, setParameter, fetchAl
         value="Title"
         name="title" 
         value={searchTerm} 
-        onChange={e => {setParameter(e.target.name)}}
+        onChange={handleSelectParameter}
       />Title
 
       </div>

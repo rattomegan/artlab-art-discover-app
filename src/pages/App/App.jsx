@@ -14,6 +14,7 @@ function App() {
   const [user, setUser] = useState(getUser());
   const [searchTerm, setSearchTerm] = useState('sunflowers');
   const [parameterName, setParameterName] = useState(null);
+  const [parameterValue, setParameterValue] = useState(false);
 
   return (
     <main className="App">
@@ -22,10 +23,21 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser}/>
           <Routes>
-            <Route path="/" element={<MainPage searchTerm={searchTerm} setSearchTerm={setSearchTerm} parameterName={parameter} setParameterName={setParameter} />} />
+            <Route 
+              path="/" 
+              element={
+                <MainPage 
+                  searchTerm={searchTerm} 
+                  setSearchTerm={setSearchTerm} 
+                  parameterName={parameterName} 
+                  setParameterName={setParameterName} 
+                  parameterValue={parameterValue} 
+                  setParameterValue={setParameterValue} 
+                />
+              } 
+            />      
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/:objectID" element={<ItemDetailPage />} />
-            {/* <Route path="/orders" element={<OrderHistoryPage />} /> */}
           </Routes>
         </>
         : 

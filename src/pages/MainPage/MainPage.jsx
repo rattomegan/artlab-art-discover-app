@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Board from "../../components/Board/Board"
 import SearchBar from "../../components/SearchBar/SearchBar"
 
-function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName }) {
+function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, setParameterValue, parameterValue }) {
   const [allItems, setAllItems] = useState(null);
 
   useEffect(() => {
@@ -11,21 +11,32 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName }
   }, [])
 
   async function handleFetchAllItems(searchTerm) {
-    if (parameterName) {
-      const allItems = await metAPI.fetchParameterItems(searchTerm, parameterName, parameterValue)
-      console.log(allItems)
-      setAllItems(allItems.items)
-      // do I need a return statement here?
-    }
+    if(parameterName) {
+      console.log(parameterName)
+      return handleFetchWithParameters(searchTerm)
+    } 
     const allItems = await metAPI.fetchAllItems(searchTerm)
     console.log(allItems)
     setAllItems(allItems.items)
   }
 
+  async function handleFetchWithParameters(searchTerm) {
+    const allItems = await metAPI.fetchItemsWithParameters(searchTerm, parameterName, parameterValue)
+    console.log(allItems)
+    setAllItems(allItems.items)
+  }
 
   return (
     <main>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} fetchAllItems={metAPI.fetchAllItems} parameter={parameter} setParameter={setParameter}/>
+      <SearchBar 
+        searchTerm={searchTerm} 
+        setSearchTerm={setSearchTerm} 
+        fetchAllItems={metAPI.fetchAllItems} 
+        parameterName={parameterName} 
+        setParameterName={setParameterName} 
+        setParameterValue={setParameterValue} 
+        // handleFetchWithParamters={handleFetchWithParameters}
+      />
       {allItems ?
         <Board allItems={allItems}/>
       :
