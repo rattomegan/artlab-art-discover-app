@@ -31,7 +31,7 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
       <SearchBar 
         searchTerm={searchTerm} 
         setSearchTerm={setSearchTerm} 
-        fetchAllItems={metAPI.fetchAllItems} 
+        handleFetchAllItems={handleFetchAllItems} 
         parameterName={parameterName} 
         setParameterName={setParameterName} 
         setParameterValue={setParameterValue} 

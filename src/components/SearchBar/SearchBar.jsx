@@ -1,8 +1,8 @@
-function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName, setParameterValue, fetchAllItems }) {
+function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName, setParameterValue, handleFetchAllItems }) {
 
   function handleSelectParameter(e) {
     setParameterName(e.target.name);
-    setParameterValue(true);
+    setParameterValue(!parameterValue);
   }
 
 
@@ -24,14 +24,11 @@ function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName,
         value={searchTerm} 
         onChange={handleSelectParameter}
       />Title
-
       </div>
-
-
 
       <button 
         className="btn" 
-        onClick={() => {fetchAllItems(searchTerm)}}
+        onClick={() => handleFetchAllItems(searchTerm)}
       >
         Search
       </button>
