@@ -12,8 +12,8 @@ function MainPage({ searchTerm, setSearchTerm }) {
 
 
   useEffect(() => {
-    handleFetchAllItems(searchTerm, currentPage)
-  }, [])
+    handleFetchAllItems(searchTerm)
+  }, [currentPage])
 
   async function handleFetchAllItems(searchTerm) {
     console.log('current page', currentPage)
@@ -27,22 +27,15 @@ function MainPage({ searchTerm, setSearchTerm }) {
     setAllItems(allItems.items)
   }
 
-function handlePageClick(page) { 
-    console.log('clicked page', page)
-    setCurrentPage(page);
-    setAllItems(null);
-    handleFetchAllItems(searchTerm)
-  }
-
   return (
     <main>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} fetchAllItems={metAPI.fetchAllItems} />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleFetchAllItems={handleFetchAllItems} />
       {allItems ?
         <Board allItems={allItems}/>
       :
         <h2>Loading...</h2>
       }
-      <Pagination totalItems={totalItems} handlePageClick={handlePageClick} />
+      <Pagination totalItems={totalItems} setCurrentPage={setCurrentPage} />
     </main>
   )
 };

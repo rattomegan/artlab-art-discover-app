@@ -1,10 +1,4 @@
-function SearchBar({ searchTerm, setSearchTerm, fetchAllItems }) {
-
-  function handleSearch(e) {
-    e.preventDefault()
-    alert('clicked')
-  }
-
+function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems }) {
 
   return (
     <div>
@@ -17,7 +11,7 @@ function SearchBar({ searchTerm, setSearchTerm, fetchAllItems }) {
       />
       <button 
         className="btn" 
-        onClick={() => {fetchAllItems(searchTerm)}}
+        onClick={() => handleFetchAllItems(searchTerm)}
       >
         Search
       </button>

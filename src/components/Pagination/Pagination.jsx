@@ -1,6 +1,6 @@
 import "./Pagination.css";
 
-function Pagination({ totalItems, handlePageClick}) {
+function Pagination({ totalItems, setCurrentPage}) {
   const pageNumbers = [];
   
   for(let i = 1; i <= Math.ceil(totalItems / 30); i++) {
@@ -12,7 +12,7 @@ function Pagination({ totalItems, handlePageClick}) {
       <ul className="Pagination">
         {pageNumbers.map(page => (
           <li key={page} className="page-item">
-            <button className="page-btn" onClick={() => handlePageClick(page)}>
+            <button className="page-btn" onClick={() => setCurrentPage(page)}>
               {page}
             </button>
           </li>
