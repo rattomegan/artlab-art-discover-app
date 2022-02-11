@@ -15,7 +15,7 @@ function MainPage({ searchTerm, setSearchTerm }) {
 
   useEffect(() => {
     handleFetchAllItems(searchTerm, currentPage)
-  }, [currentPage])
+  }, [])
 
   async function handleFetchAllItems(searchTerm, currentPage) {
     // this starts at 30
