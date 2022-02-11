@@ -14,10 +14,10 @@ function MainPage({ searchTerm, setSearchTerm }) {
 
 
   useEffect(() => {
-    handleFetchAllItems(searchTerm)
+    handleFetchAllItems(searchTerm, currentPage)
   }, [currentPage])
 
-  async function handleFetchAllItems(searchTerm) {
+  async function handleFetchAllItems(searchTerm, currentPage) {
     // this starts at 30
     const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
     // this starts at 0
@@ -29,8 +29,9 @@ function MainPage({ searchTerm, setSearchTerm }) {
   }
 
 function handlePageClick(page) {
-    setCurrentPage(page)
-    handleFetchAllItems(searchTerm)
+    setCurrentPage(page);
+    setAllItems(null);
+    handleFetchAllItems(searchTerm, currentPage)
   }
 
   return (
