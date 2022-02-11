@@ -8,7 +8,7 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
   const [allItems, setAllItems] = useState(null);
   const [totalItems, setTotalItems] = useState(0)
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 30 // 
+  const ITEMS_PER_PAGE = 30 
 
 
   useEffect(() => {
@@ -16,13 +16,15 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
   }, [currentPage])
 
   async function handleFetchAllItems(searchTerm) {
-    // if(parameterName) {
-    //   console.log(parameterName)
-    //   return handleFetchWithParameters(searchTerm)
-    // } 
+    if(parameterName) {
+      console.log(parameterName)
+      return handleFetchWithParameters(searchTerm)
+    } 
+    // starts at 30
     const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+    // starts at 0
     const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
-    const allItems = await metAPI.fetchAllItems(searchTerm, indexOfFirstItem, indexOfLastItem)
+    const allItems = await metAPI.fetchAllItems(searchTerm, indexOfFirstItem)
     console.log(allItems)
     setTotalItems(allItems.total)
     setAllItems(allItems.items)
@@ -31,8 +33,9 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
   async function handleFetchWithParameters(searchTerm) {
     const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
     const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
-    const allItems = await metAPI.fetchItemsWithParameters(searchTerm, parameterName, parameterValue, indexOfFirstItem, indexOfLastItem)
+    const allItems = await metAPI.fetchItemsWithParameters(searchTerm, parameterName, parameterValue, indexOfFirstItem)
     console.log(allItems)
+    setTotalItems(allItems.total)
     setAllItems(allItems.items)
   }
 
@@ -42,7 +45,6 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
         searchTerm={searchTerm} 
         setSearchTerm={setSearchTerm} 
         handleFetchAllItems={handleFetchAllItems} 
-        parameterName={parameterName} 
         setParameterName={setParameterName} 
         parameterValue={setParameterValue}
         setParameterValue={setParameterValue} 

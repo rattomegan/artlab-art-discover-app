@@ -1,8 +1,8 @@
-function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName, setParameterValue, handleFetchAllItems, parameterValue }) {
+function SearchBar({ searchTerm, setSearchTerm, setParameterName, setParameterValue, handleFetchAllItems, parameterValue }) {
 
   function handleSelectParameter(e) {
     setParameterName(e.target.name);
-    setParameterValue(!parameterValue);
+    setParameterValue(!!parameterValue);
   }
 
 
@@ -19,8 +19,8 @@ function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName,
       <div>
       <input 
         type="radio" 
-        value="Title"
-        name="title" 
+        value="Artist or Culture"
+        name="artistOrCulture" 
         value={searchTerm} 
         onChange={handleSelectParameter}
       />Title
