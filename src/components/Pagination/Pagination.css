@@ -1,0 +1,14 @@
+.Pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+}
+
+.page-btn {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.8rem;
+  background-color: #fff;
+  border: none;
+}

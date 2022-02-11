@@ -1,4 +1,4 @@
-function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName, setParameterValue, handleFetchAllItems }) {
+function SearchBar({ searchTerm, setSearchTerm, parameterName, setParameterName, setParameterValue, handleFetchAllItems, parameterValue }) {
 
   function handleSelectParameter(e) {
     setParameterName(e.target.name);
