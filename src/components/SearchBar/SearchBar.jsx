@@ -2,7 +2,7 @@ function SearchBar({ searchTerm, setSearchTerm, setParameterName, setParameterVa
 
   function handleSelectParameter(e) {
     setParameterName(e.target.name);
-    setParameterValue(!!parameterValue);
+    setParameterValue(!parameterValue);
   }
 
 
@@ -23,7 +23,7 @@ function SearchBar({ searchTerm, setSearchTerm, setParameterName, setParameterVa
         name="artistOrCulture" 
         value={searchTerm} 
         onChange={handleSelectParameter}
-      />Title
+      />Artist or Culture
       </div>
 
       <button 

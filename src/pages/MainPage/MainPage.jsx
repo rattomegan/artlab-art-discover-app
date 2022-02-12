@@ -39,6 +39,12 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
     setAllItems(allItems.items)
   }
 
+  function updatePageInfo(page) {
+    setAllItems(null)
+    setCurrentPage(page)
+  }
+
+
   return (
     <main>
       <SearchBar 
@@ -46,7 +52,7 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
         setSearchTerm={setSearchTerm} 
         handleFetchAllItems={handleFetchAllItems} 
         setParameterName={setParameterName} 
-        parameterValue={setParameterValue}
+        parameterValue={parameterValue}
         setParameterValue={setParameterValue} 
       />
       {allItems ?
@@ -54,7 +60,7 @@ function MainPage({ searchTerm, setSearchTerm, parameterName, setParameterName, 
       :
         <h2>Loading...</h2>
       }
-      <Pagination totalItems={totalItems} setCurrentPage={setCurrentPage} />
+      <Pagination totalItems={totalItems} setCurrentPage={setCurrentPage} updatePageInfo={updatePageInfo} />
     </main>
   )
 };
