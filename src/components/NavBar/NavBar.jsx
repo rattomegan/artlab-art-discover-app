@@ -14,7 +14,7 @@ function NavBar({ user, setUser }) {
   return (
     <nav className="NavBar">
       <div className="navbar-group">
-        <Link to="/" className="navbar-link">Home</Link>
+        <Link to="/" className="navbar-link">Search</Link>
         <Link to="/favorites" className="navbar-link">My Favorites</Link>
       </div>
       <div className="navbar-group">
