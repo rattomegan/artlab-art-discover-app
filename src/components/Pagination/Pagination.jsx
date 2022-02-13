@@ -1,9 +1,7 @@
 import "./Pagination.css";
-import { useEffect, useState } from "react";
+
 
 function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) {
-  const [pageRangeCeil, setPageRangeCeil] = useState(currentPage + 4)
-  const [pageRangeFloor, setPageRangeFloor] = useState(currentPage)
    
   const pageNumbers = [];
 
@@ -35,9 +33,15 @@ function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) 
     setCurrentPage(nextPage)
   }
 
+  function goToFirstPage() {
+    setCurrentPage(1)
+  }
+
+
   return (
     <div className="Pagination">
       <ul className="page-list">
+      <button onClick={goToFirstPage}>Go to 1</button>
       <button onClick={goBackAPage}>Back</button>
         {/* This is filtering results to cut down on page numbers */}
         {/* {pageNumbers.filter((page, idx) => idx < 10).map(page => (
@@ -51,7 +55,7 @@ function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) 
           </li>
         ))} */}
 
-        {pageNumbers.filter((page) => page < (currentPage + 4) && page >= (currentPage - 3)).map(page => (
+        {pageNumbers.filter((page) => page < (currentPage + 5) && page >= (currentPage - 4)).map(page => (
           <li key={page} className="page-item">
             <button 
               className={`page-btn ${currentPage === page ? 'page-selected' : ''}` }
@@ -63,6 +67,7 @@ function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) 
         ))}
 
       <button onClick={goForwardAPage}>Next</button>
+      {/* <button>Go to last page</button> */}
       </ul>
     </div>
   )
