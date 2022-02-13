@@ -4,22 +4,21 @@ import { getUser } from "../../utilities/users-service";
 import { Routes, Route } from "react-router-dom";
 import AuthPage from "../AuthPage/AuthPage";
 import WelcomePage from "../WelcomePage/WelcomePage";
-import MainPage from "../MainPage/MainPage"
-import NavBar from "../../components/NavBar/NavBar"
-import BoardItem from "../../components/BoardItem/BoardItem"
-import ItemDetailPage from "../ItemDetailPage/ItemDetailPage"
-import FavoritesPage from "../FavoritesPage/FavoritesPage"
+import MainPage from "../MainPage/MainPage";
+import NavBar from "../../components/NavBar/NavBar";
+import ItemDetailPage from "../ItemDetailPage/ItemDetailPage";
+import FavoritesPage from "../FavoritesPage/FavoritesPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
   const [searchTerm, setSearchTerm] = useState('sunflowers');
-  // const [parameterName, setParameterName] = useState(null);
-  // const [parameterValue, setParameterValue] = useState(false);
 
   const [searchParameters, setSearchParameters] = useState([
     {name: 'title', display: 'Title', selected: false},
     {name: 'artistOrCulture', display: 'Artist or Culture', selected: false},
-    {name: 'medium', display: 'Medium', selected: false},
+    // {name: 'medium', display: 'Medium', selected: false}, // this will require more functionality - setting options to select the medium - maybe a nested object?
+    {name: 'isHighlight', display: 'Highlight', selected: false},
+    {name: 'isOnView', display: 'Currently on View at the Met', selected: false},
   ])
 
 
@@ -38,10 +37,6 @@ function App() {
                   setSearchTerm={setSearchTerm} 
                   searchParameters={searchParameters}
                   setSearchParameters={setSearchParameters}
-                  // parameterName={parameterName} 
-                  // setParameterName={setParameterName} 
-                  // parameterValue={parameterValue} 
-                  // setParameterValue={setParameterValue} 
                 />
               } 
             />      

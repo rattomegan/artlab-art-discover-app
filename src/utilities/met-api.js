@@ -44,8 +44,8 @@ export async function fetchAllItems(searchTerm, firstIndex, parameterName) {
     console.log('met-api', allItems)
     return allItems
   }
-  const objectIDs = res.objectIDs.splice(firstIndex, 30)
-  const promiseArray = objectIDs.map((id) => {
+  const objectIDs = await res.objectIDs.splice(firstIndex, 30)
+  const promiseArray = await objectIDs.map((id) => {
     return fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`).then(res => res.json())
   })
   const promiseItems = await Promise.all(promiseArray)
@@ -53,5 +53,6 @@ export async function fetchAllItems(searchTerm, firstIndex, parameterName) {
     total: res.total,
     items: promiseItems
   }
+  console.log('met-api first set', allItems)
   return allItems
 }

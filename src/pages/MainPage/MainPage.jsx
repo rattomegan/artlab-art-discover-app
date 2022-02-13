@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination/Pagination"
 function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParameters }) {
   const [allItems, setAllItems] = useState(null);
   const [totalItems, setTotalItems] = useState(0)
-  const [currentPage, setCurrentPage] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 30 
 
 
@@ -61,7 +61,7 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
         <h2>Loading...</h2>
       }
 
-      <Pagination totalItems={totalItems} setCurrentPage={setCurrentPage} updatePageInfo={updatePageInfo} />
+      <Pagination totalItems={totalItems} currentPage={currentPage} setCurrentPage={setCurrentPage} updatePageInfo={updatePageInfo} />
     </main>
   )
 };

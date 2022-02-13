@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import * as boardsAPI from "../../utilities/boards-api"
 import Board from "../../components/Board/Board"
-import SearchBar from "../../components/SearchBar/SearchBar"
 
 function FavoritesPage() {
   const [allItems, setAllItems] = useState(null);

@@ -12,3 +12,8 @@
   background-color: #fff;
   border: none;
 }
+
+.page-selected {
+  cursor: not-allowed;
+  text-decoration: underline;
+}
