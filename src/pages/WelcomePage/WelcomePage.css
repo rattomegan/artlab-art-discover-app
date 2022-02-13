@@ -1,24 +1,55 @@
+body {
+  background-color: rgb(236, 236, 236);
+  background-color: rgb(253, 247, 239);
+}
+
 .WelcomePage {
   max-width: 120rem;
   margin: 0 auto;
-  padding: 0 3.2rem;
+  padding: 0 1.8rem;
+  height: 100vh;
 }
 
 .welcome-title {
-  margin-top: 50px;
-  margin-bottom: 50px; 
+  margin-top: 5.0rem;
+  margin-bottom: 1.6rem; 
   font-size: 5.6rem;
 }
 
 .welcome-container {
-
-  height: 100vh;
   display: flex;
   flex-flow: row wrap;
   margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+
 }
 
-.welcome-container div {
-  flex: 1 1 50%
+.welcome-slideshow {
+  width: 100%;
 }
 
+
+.welcome-text {
+  max-width: 40rem;
+  min-width: 30rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.6rem;
+  gap: 1.8rem;
+}
+
+.welcome-btn {
+  border: none;
+  background-color: #fff;
+  padding: 10px 25px;
+  transition: all .3s;
+}
+
+.welcome-btn:hover {
+  background-color: cadetblue;
+  color: #fff;
+}
