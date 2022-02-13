@@ -2,7 +2,7 @@ import AdvancedSearchOption from "../AdvancedSearchOption/AdvancedSearchOption";
 import "./SearchBar.css"
 import { useState } from "react";
 
-function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems, searchParameters, setSearchParameters, handleSearchClick }) {
+function SearchBar({ searchTerm, setSearchTerm, searchParameters, setSearchParameters, handleSearchClick}) {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false)
  
 
@@ -19,7 +19,9 @@ function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems, searchParam
         />
         <button 
           className="btn" 
-          onClick={() => handleSearchClick()}
+          onClick={() => {
+            handleSearchClick(searchTerm)
+          }}
         >
           Search
         </button>

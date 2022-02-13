@@ -43,6 +43,8 @@ function App() {
                 />
               } 
             />      
+            {/* /search/trees/page */}
+            {/* the button onclick points to function that uses useNavigate hook */}
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/:objectID" element={<ItemDetailPage />} />
           </Routes>

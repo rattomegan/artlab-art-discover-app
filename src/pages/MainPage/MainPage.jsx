@@ -39,10 +39,11 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
     setCurrentPage(page)
   }
 
-  function handleSearchClick() {
+  function handleSearchClick(searchTerm) {
     setCurrentPage(1)
     setAllItems(null)
     setTotalItems(0)
+    handleFetchAllItems(searchTerm)
   }
 
 
@@ -51,7 +52,6 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
       <SearchBar 
         searchTerm={searchTerm} 
         setSearchTerm={setSearchTerm} 
-        handleFetchAllItems={handleFetchAllItems} 
         searchParameters={searchParameters}
         setSearchParameters={setSearchParameters}
         handleSearchClick={handleSearchClick}
