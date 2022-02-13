@@ -41,13 +41,13 @@ export default function SignUpForm({ setUser }) {
     <div>
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name:</label>
           <input type="text" id="name" name="name" value={userData.name} onChange={handleChange} required />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email:</label>
           <input type="email" id="email" name="email" value={userData.email} onChange={handleChange} required />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input type="password" id="password" name="password" value={userData.password} onChange={handleChange} required />
-          <label htmlFor="confirm">Confirm</label>
+          <label htmlFor="confirm">Confirm:</label>
           <input type="password" id="confirm" name="confirm" value={userData.confirm} onChange={handleChange} required />
           <button type="submit" disabled={userData.password !== userData.confirm && "disable"}>SIGN UP</button>
         </form>

@@ -44,12 +44,20 @@ body {
 
 .welcome-btn {
   border: none;
-  background-color: #fff;
   padding: 10px 25px;
+  background-color: cadetblue;
+  color: #fff;
   transition: all .3s;
 }
 
 .welcome-btn:hover {
-  background-color: cadetblue;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
+}
+
+.selected-btn {
+  border: none;
+  padding: 10px 25px;
+  background-color: #fff;
+  color: #333;
 }

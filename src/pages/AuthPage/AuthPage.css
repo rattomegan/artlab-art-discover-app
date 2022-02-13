@@ -1,0 +1,12 @@
+.authpage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.authpage-container h2 {
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin: 1.8rem 0;
+  margin-bottom: 1.8rem;
+}

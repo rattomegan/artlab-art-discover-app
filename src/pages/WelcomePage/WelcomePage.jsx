@@ -14,12 +14,12 @@ function WelcomePage({ setUser}) {
       <div className="welcome-container">
 
         <div className="welcome-text">
-          <h2>Explore the Metropolitan Museum of Art's public collection of over 470,000 works via their APOI </h2>
-          <button 
+          <h2>Explore the Metropolitan Museum of Art's public collection of over 470,000 works via their API. Save your pieces you love to your favorites.</h2>
+          <button
             onClick={() => setShowForm(!showForm)}
-            className="welcome-btn"
+            className={showForm ? "selected-btn" : "welcome-btn"}
             >
-            {showForm ? "Hide Form" : "Sign up or log in"}
+            {showForm ? "Show Slideshow" : "Sign up or log in"}
           </button>
         </div>
 

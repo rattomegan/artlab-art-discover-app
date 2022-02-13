@@ -3,9 +3,9 @@ import { useState, useEffect, useRef } from "react";
 
 
 const images = [
-  "https://images.metmuseum.org/CRDImages/dp/web-large/DP805782.jpg",
   "https://images.metmuseum.org/CRDImages/ep/web-large/DT1494.jpg", 
-  "https://images.metmuseum.org/CRDImages/ep/web-large/DT47.jpg"
+  "https://images.metmuseum.org/CRDImages/ep/web-large/DT47.jpg",
+  "https://images.metmuseum.org/CRDImages/dp/web-large/DP805782.jpg",
 ]
 const delay = 5000;
 

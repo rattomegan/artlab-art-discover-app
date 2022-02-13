@@ -1,16 +1,4 @@
 
-/* CSS Custom Properties */
-:root {
-  /* --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
-  --text-dark: #615954; */
-}
-
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -35,29 +23,27 @@ body {
   height: 100%;
 }
 
-
-.form-container {
+/* .form-container {
   padding: 3vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
-}
+} */
 
 p.error-message {
-  color: var(--orange);
+  color:#161666;
   text-align: center;
 }
 
 form {
-  width: 75%;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25rem;
-  color: var(--text-light);
 }
 
 label {
-  font-size: 1.6rem;
+  font-size: 2.0rem;
   display: flex;
   align-items: center;
 }
@@ -67,7 +53,6 @@ input {
   font-size: 1.6rem;
   border: .1rem solid #333;
   border-radius: .5vmin;
-  color: var(--text-dark);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
@@ -79,22 +64,22 @@ input:focus {
 button, a.button {
   margin: 1rem;
   padding: 1rem;
-  color: var(--white);
-  background-color: #eee;
   font-size: 1.6rem;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1rem solid #333;
+  border: none;
   border-radius: .5rem;
   outline: none;
   cursor: pointer;
+  background-color: cadetblue;
+  color: #fff;
 }
 
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: rgb(148, 156, 156);
 }
 
 button[type="submit"] {
