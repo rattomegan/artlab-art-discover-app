@@ -17,6 +17,7 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
 
 
   async function handleFetchAllItems(searchTerm) {
+    setAllItems(null)
     const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
     const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
     const parameter = await searchParameters.find(p => {
@@ -40,10 +41,12 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
   }
 
   function handleSearchClick(searchTerm) {
+    setCurrentPage(1)
     setAllItems(null)
     setTotalItems(0)
     handleFetchAllItems(searchTerm)
   }
+
 
   return (
     <main>
