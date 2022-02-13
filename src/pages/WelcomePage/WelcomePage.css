@@ -1,10 +1,18 @@
+.WelcomePage {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
 .welcome-container {
+  
   height: 100vh;
   display: flex;
   flex-flow: row wrap;
+  margin: auto;
 }
 
 .welcome-container div {
-  flex: 1;
+  flex: 1 1 50%
 }
 

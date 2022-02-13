@@ -7,17 +7,17 @@ const images = [
   "https://images.metmuseum.org/CRDImages/ep/web-large/DT1494.jpg", 
   "https://images.metmuseum.org/CRDImages/ep/web-large/DT1562.jpg"
 ]
-const delay = 2500;
+const delay = 5000;
 
 function SlideShow() {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
-  function resetTimeout() {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  }
+  // function resetTimeout() {
+  //   if (timeoutRef.current) {
+  //     clearTimeout(timeoutRef.current);
+  //   }
+  // }
 
   // useEffect(() => {
   //   resetTimeout();
@@ -43,7 +43,7 @@ function SlideShow() {
         {images.map((image, idx) => (
           <img className="slide" key={idx} src={`${image}`} alt="image" />
         ))}
-        <div className="slide"></div>
+        {/* <div className="slide"></div> */}
       </div>
 
       <div className="slideshowDots">

@@ -23,11 +23,14 @@ function BoardItem({ item }) {
   return (
     <>
     {item ?
-          <Link to={`/${item.objectID}`}>
+      <div className="BoardItem">
+        <Link to={`/${item.objectID}`}>
           <img src={item.primaryImageSmall}
-            className="BoardItem"
+            className="board-img"
           />
         </Link>
+      // </div>
+
     :
     <div>No Results</div>
     }

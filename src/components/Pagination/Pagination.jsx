@@ -41,8 +41,11 @@ function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) 
   return (
     <div className="Pagination">
       <ul className="page-list">
-      <button onClick={goToFirstPage}>Go to 1</button>
-      <button onClick={goBackAPage}>Back</button>
+        {pageNumbers.length > 5 && 
+          <button onClick={goToFirstPage}>Go to 1</button>
+        }
+        <button onClick={goBackAPage}>Back</button>
+        
         {/* This is filtering results to cut down on page numbers */}
         {/* {pageNumbers.filter((page, idx) => idx < 10).map(page => (
           <li key={page} className="page-item">
