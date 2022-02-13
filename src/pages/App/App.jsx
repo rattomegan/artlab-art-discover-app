@@ -12,6 +12,7 @@ import FavoritesPage from "../FavoritesPage/FavoritesPage";
 function App() {
   const [user, setUser] = useState(getUser());
   const [searchTerm, setSearchTerm] = useState('sunflowers');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [searchParameters, setSearchParameters] = useState([
     {name: 'title', display: 'Title', selected: false},
@@ -37,6 +38,8 @@ function App() {
                   setSearchTerm={setSearchTerm} 
                   searchParameters={searchParameters}
                   setSearchParameters={setSearchParameters}
+                  currentPage={currentPage} 
+                  setCurrentPage={setCurrentPage}
                 />
               } 
             />      

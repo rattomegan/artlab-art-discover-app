@@ -4,10 +4,9 @@ import Board from "../../components/Board/Board"
 import SearchBar from "../../components/SearchBar/SearchBar"
 import Pagination from "../../components/Pagination/Pagination"
 
-function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParameters }) {
+function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParameters, currentPage, setCurrentPage }) {
   const [allItems, setAllItems] = useState(null);
   const [totalItems, setTotalItems] = useState(0)
-  const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 30 
 
 
@@ -40,11 +39,10 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
     setCurrentPage(page)
   }
 
-  function handleSearchClick(searchTerm) {
+  function handleSearchClick() {
     setCurrentPage(1)
     setAllItems(null)
     setTotalItems(0)
-    handleFetchAllItems(searchTerm)
   }
 
 

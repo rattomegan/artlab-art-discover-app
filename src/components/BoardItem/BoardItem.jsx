@@ -29,7 +29,7 @@ function BoardItem({ item }) {
             className="board-img"
           />
         </Link>
-      // </div>
+      </div>
 
     :
     <div>No Results</div>

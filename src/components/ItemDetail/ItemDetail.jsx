@@ -23,7 +23,7 @@ function ItemDetail({ itemDetail, handleAddToFavorites, itemFromDb, handleRemove
         <button onClick={() => handleAddToFavorites(itemDetail)}>Save to Favorites</button>
       }
       
-      <Link to="/">Back to home</Link>
+      <Link to="/">Back</Link>
     </div>
   )
 }

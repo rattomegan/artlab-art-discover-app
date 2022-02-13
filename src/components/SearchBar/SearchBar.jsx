@@ -6,6 +6,7 @@ function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems, searchParam
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false)
  
 
+
   return (
     <div className="SearchBar">
       <div className="basic-search">
@@ -18,7 +19,7 @@ function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems, searchParam
         />
         <button 
           className="btn" 
-          onClick={() => handleSearchClick(searchTerm)}
+          onClick={() => handleSearchClick()}
         >
           Search
         </button>
