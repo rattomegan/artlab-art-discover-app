@@ -14,8 +14,8 @@ function Board({ allItems, totalItems }) {
           })}
         </div>
       :
-        <div>No Results. Please change your search query</div>
-    }
+        <div>No Results</div>
+      } 
 
     </>
 

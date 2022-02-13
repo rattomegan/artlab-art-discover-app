@@ -4,7 +4,8 @@ import Board from "../../components/Board/Board"
 import SearchBar from "../../components/SearchBar/SearchBar"
 
 function FavoritesPage() {
-  const [allItems, setAllItems] = useState([]);
+  const [allItems, setAllItems] = useState(null);
+  const [totalItems, setTotalItems] = useState(true)
 
   useState(() => {
     fetchFavoritesfromDb()
@@ -14,12 +15,18 @@ function FavoritesPage() {
     const allItems = await boardsAPI.fetchFavorites()
     console.log(allItems)
     setAllItems(allItems)
+    setTotalItems(allItems.length)
   }
 
   return (
     <main>
       <h1>Favorites</h1>
-      <Board allItems={allItems} />
+      {allItems ?
+        <Board allItems={allItems} totalItems={totalItems}/>
+      :
+        <div>Loading...</div>
+    }
+      
     </main>
   )
 };
