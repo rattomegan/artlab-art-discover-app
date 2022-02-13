@@ -1,10 +1,15 @@
-function SearchBar({ searchTerm, setSearchTerm, setParameterName, setParameterValue, handleFetchAllItems, parameterValue }) {
+import AdvancedSearchOption from "../AdvancedSearchOption/AdvancedSearchOption";
+import { useState } from "react";
 
-  function handleSelectParameter(e) {
-    setParameterName(e.target.name);
-    setParameterValue(!parameterValue);
-  }
+function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems, searchParameters, setSearchParameters }) {
+  const [showAdvancedSearch, setShowAdvancedSearch] = useState(false)
 
+  // function handleSelectParameter(e) {
+  //   console.log(parameterValue)
+  //   setParameterName(e.target.name);
+  //   setParameterValue(!parameterValue);
+  // }
+  
 
   return (
     <div>
@@ -16,16 +21,6 @@ function SearchBar({ searchTerm, setSearchTerm, setParameterName, setParameterVa
         onChange={e => setSearchTerm(e.target.value)}
       />
 
-      <div>
-      <input 
-        type="radio" 
-        value="Artist or Culture"
-        name="artistOrCulture" 
-        value={searchTerm} 
-        onChange={handleSelectParameter}
-      />Artist or Culture
-      </div>
-
       <button 
         className="btn" 
         onClick={() => handleFetchAllItems(searchTerm)}
@@ -33,6 +28,16 @@ function SearchBar({ searchTerm, setSearchTerm, setParameterName, setParameterVa
         Search
       </button>
 
+      <button onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}>
+        {showAdvancedSearch ? "Hide Search Options"  : "More Search Options"} 
+      </button>
+      {showAdvancedSearch &&
+      <div>
+      {searchParameters.map((p, i) => (
+        <AdvancedSearchOption parameter={p} key={i} />
+        ))}
+      </div>
+      }
 
     </div>
   )

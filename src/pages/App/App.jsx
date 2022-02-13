@@ -13,8 +13,15 @@ import FavoritesPage from "../FavoritesPage/FavoritesPage"
 function App() {
   const [user, setUser] = useState(getUser());
   const [searchTerm, setSearchTerm] = useState('sunflowers');
-  const [parameterName, setParameterName] = useState(null);
-  const [parameterValue, setParameterValue] = useState(false);
+  // const [parameterName, setParameterName] = useState(null);
+  // const [parameterValue, setParameterValue] = useState(false);
+
+  const [searchParameters, setSearchParameters] = useState([
+    {name: 'title', display: 'Title', selected: false},
+    {name: 'artistOrCulture', display: 'Artist or Culture', selected: false},
+    {name: 'medium', display: 'Medium', selected: false},
+  ])
+
 
   return (
     <main className="App">
@@ -29,10 +36,12 @@ function App() {
                 <MainPage 
                   searchTerm={searchTerm} 
                   setSearchTerm={setSearchTerm} 
-                  parameterName={parameterName} 
-                  setParameterName={setParameterName} 
-                  parameterValue={parameterValue} 
-                  setParameterValue={setParameterValue} 
+                  searchParameters={searchParameters}
+                  setSearchParameters={setSearchParameters}
+                  // parameterName={parameterName} 
+                  // setParameterName={setParameterName} 
+                  // parameterValue={parameterValue} 
+                  // setParameterValue={setParameterValue} 
                 />
               } 
             />      
