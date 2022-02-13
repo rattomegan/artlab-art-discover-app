@@ -1,0 +1,10 @@
+.welcome-container {
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.welcome-container div {
+  flex: 1;
+}
+
