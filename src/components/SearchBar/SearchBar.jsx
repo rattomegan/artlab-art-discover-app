@@ -1,43 +1,49 @@
 import AdvancedSearchOption from "../AdvancedSearchOption/AdvancedSearchOption";
+import "./SearchBar.css"
 import { useState } from "react";
 
-function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems, searchParameters, setSearchParameters }) {
+function SearchBar({ searchTerm, setSearchTerm, handleFetchAllItems, searchParameters, setSearchParameters, handleSearchClick }) {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false)
-
-  // function handleSelectParameter(e) {
-  //   console.log(parameterValue)
-  //   setParameterName(e.target.name);
-  //   setParameterValue(!parameterValue);
-  // }
-  
+ 
 
   return (
-    <div>
-      <input 
-        type="search" 
-        placeholder="Search by Artist, title, keyword, ect." 
-        name="q" 
-        value={searchTerm} 
-        onChange={e => setSearchTerm(e.target.value)}
-      />
+    <div className="SearchBar">
+      <div className="basic-search">
+        <input 
+          type="search" 
+          placeholder="Search by Artist, title, keyword, ect." 
+          name="q" 
+          value={searchTerm} 
+          onChange={e => setSearchTerm(e.target.value)}
+        />
+        <button 
+          className="btn" 
+          onClick={() => handleSearchClick(searchTerm)}
+        >
+          Search
+        </button>
+      </div>
 
-      <button 
-        className="btn" 
-        onClick={() => handleFetchAllItems(searchTerm)}
-      >
-        Search
-      </button>
-
-      <button onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}>
+      <button className="show-search" onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}>
         {showAdvancedSearch ? "Hide Search Options"  : "More Search Options"} 
       </button>
+
       {showAdvancedSearch &&
-      <div>
-      {searchParameters.map((p, i) => (
-        <AdvancedSearchOption parameter={p} key={i} />
-        ))}
+      <div 
+        className="advanced-search-container"
+        // style={{
+        //   display: showAdvancedSearch ? "inline-block" : "hidden"
+        // }}
+        >
+        <div>Select one search option and enter your keyword:</div>
+        <div className="advanced-options-container">
+         {searchParameters.map((p, i) => (
+            <AdvancedSearchOption parameter={p} key={i} setSearchParameters={setSearchParameters} searchParameters={searchParameters} />
+          ))}
+        </div>
+
       </div>
-      }
+      } 
 
     </div>
   )

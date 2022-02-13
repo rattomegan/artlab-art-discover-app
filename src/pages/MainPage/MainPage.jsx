@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination/Pagination"
 function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParameters }) {
   const [allItems, setAllItems] = useState(null);
   const [totalItems, setTotalItems] = useState(0)
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(null);
   const ITEMS_PER_PAGE = 30 
 
 
@@ -15,35 +15,35 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
     handleFetchAllItems(searchTerm)
   }, [currentPage])
 
+
   async function handleFetchAllItems(searchTerm) {
-    // if(parameterName) {
-    //   console.log(parameterName)
-    //   return handleFetchWithParameters(searchTerm)
-    // } 
-    // starts at 30
     const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
-    // starts at 0
     const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
-    const allItems = await metAPI.fetchAllItems(searchTerm, indexOfFirstItem)
-    console.log(allItems)
+    const parameter = await searchParameters.find(p => {
+      return p.selected === true
+    })
+    let allItems
+    if (parameter) {
+      allItems = await metAPI.fetchAllItems(searchTerm, indexOfFirstItem, parameter.name)
+      console.log('advanced search main results', allItems)
+    } else {
+      allItems = await metAPI.fetchAllItems(searchTerm, indexOfFirstItem)
+      console.log('simple search main results', allItems)
+    }
     setTotalItems(allItems.total)
     setAllItems(allItems.items)
   }
-
-  // async function handleFetchWithParameters(searchTerm) {
-  //   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
-  //   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
-  //   const allItems = await metAPI.fetchItemsWithParameters(searchTerm, parameterName, parameterValue, indexOfFirstItem)
-  //   console.log(allItems)
-  //   setTotalItems(allItems.total)
-  //   setAllItems(allItems.items)
-  // }
 
   function updatePageInfo(page) {
     setAllItems(null)
     setCurrentPage(page)
   }
 
+  function handleSearchClick(searchTerm) {
+    setAllItems(null)
+    setTotalItems(0)
+    handleFetchAllItems(searchTerm)
+  }
 
   return (
     <main>
@@ -53,15 +53,14 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
         handleFetchAllItems={handleFetchAllItems} 
         searchParameters={searchParameters}
         setSearchParameters={setSearchParameters}
-        // setParameterName={setParameterName} 
-        // parameterValue={parameterValue}
-        // setParameterValue={setParameterValue} 
+        handleSearchClick={handleSearchClick}
       />
       {allItems ?
-        <Board allItems={allItems}/>
+        <Board allItems={allItems} totalItems={totalItems}/>
       :
         <h2>Loading...</h2>
       }
+
       <Pagination totalItems={totalItems} setCurrentPage={setCurrentPage} updatePageInfo={updatePageInfo} />
     </main>
   )

@@ -1,0 +1,9 @@
+.AdvancedSearchOption button {
+  background-color: #fff;
+  border: none;
+  font-size: 1.4rem;
+}
+
+.selected {
+  text-decoration: underline;
+}

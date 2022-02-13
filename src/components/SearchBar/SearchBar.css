@@ -1,0 +1,25 @@
+.SearchBar {
+  display: flex;
+  /* will need to hard-code the size of the search bar most likely */
+}
+
+.basic-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.show-search {
+  border: none;
+  background-color: #fff;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.advanced-search-container {
+  font-size: 1.4rem;
+}
+
+.advanced-options-container {
+  display: flex;
+  align-items: center;
+}

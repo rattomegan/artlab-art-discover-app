@@ -2,7 +2,7 @@ import "./Pagination.css";
 
 function Pagination({ totalItems, setCurrentPage, updatePageInfo}) {
   const pageNumbers = [];
-  
+
   for(let i = 1; i <= Math.ceil(totalItems / 30); i++) {
     pageNumbers.push(i);
   }
