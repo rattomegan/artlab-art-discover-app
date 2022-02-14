@@ -19,20 +19,20 @@ function SlideShow() {
     }
   }
 
-  useEffect(() => {
-    resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) =>
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        ),
-      delay
-    );
+  // useEffect(() => {
+  //   resetTimeout();
+  //   timeoutRef.current = setTimeout(
+  //     () =>
+  //       setIndex((prevIndex) =>
+  //         prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //       ),
+  //     delay
+  //   );
 
-    return () => {
-      resetTimeout();
-    };
-  }, [index]);
+  //   return () => {
+  //     resetTimeout();
+  //   };
+  // }, [index]);
 
   return (
     <div className="slideshow">
