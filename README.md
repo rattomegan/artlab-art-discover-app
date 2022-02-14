@@ -40,7 +40,7 @@ item detail | <img src="https://i.imgur.com/lKOzDqT.png" width="250">
 
 ---
 
-### What's Next
+### To Be Improved
 - Better routing.
 - Improve responsiveness.
 - Create a random array of search words to provide user unique results upon each new login.
@@ -50,10 +50,10 @@ item detail | <img src="https://i.imgur.com/lKOzDqT.png" width="250">
 - Add The Art Institue of Chicago API to allow searching by museum collection.
 - Fix bugs, clean up and refactor code.
 
-### Known Bugs
+### Known Issues
 - Pressing the search button from a page other than 1 causes fetch to run twice, first with the page you are on, secondly as a new search from page 1. I will fix this by incorporating more detailed routes for the search results.
 - You currently cannot go back from a detail page to your favorites board. The back button will always return to the search page. This will also be fixed with more detailed routes.
 - The detail page photo is not responsive. 
 
 ---
-All rights reserved. Megan Ratto 2022.
+
