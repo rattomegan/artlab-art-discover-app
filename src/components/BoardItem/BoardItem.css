@@ -2,7 +2,7 @@
   height: 150px;
   /* width: 20rem; */
   border-radius: 0.2rem;
-
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 }
 
 .BoardItem:hover {
