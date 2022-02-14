@@ -11,7 +11,7 @@ import FavoritesPage from "../FavoritesPage/FavoritesPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
-  const [searchTerm, setSearchTerm] = useState('sunflowers');
+  const [searchTerm, setSearchTerm] = useState('van gogh');
   const [currentPage, setCurrentPage] = useState(1);
 
   const [searchParameters, setSearchParameters] = useState([
