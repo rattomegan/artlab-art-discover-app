@@ -9,6 +9,7 @@ Once logged in, you can search by keyword or a category listed above. Each searc
 
 
 [Click here to view the app!](https://artlab.herokuapp.com/)
+
 [Trello Planning Board](https://trello.com/b/yvHVqPqk/art-lab-art-cart)
 
 ## Screenshots
