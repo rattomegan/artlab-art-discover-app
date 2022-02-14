@@ -3,31 +3,16 @@ import { Link } from "react-router-dom";
 import "./BoardItem.css";
 
 function BoardItem({ item }) {
-  // const [boardItem, setBoardItem] = useState('')
-
-  // useEffect(() => {
-  //     setBoardItem(item)
-  // }, [])
-
-
-  // return (
-  //   <>
-  //     <Link to={`/${boardItem.objectID}`}>
-  //       <img src={boardItem.primaryImageSmall}
-  //         className="BoardItem"
-  //       />
-  //     </Link>
-  //   </>
-  // )
-
   return (
     <>
     {item ?
+    <div >
         <Link to={`/${item.objectID}`}>
-          <img src={item.primaryImageSmall}
-            className="BoardItem"
+          <img className="BoardItem" src={item.primaryImageSmall}
           />
         </Link>
+    </div>
+
 
     :
     <div>No Results</div>

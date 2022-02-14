@@ -14,7 +14,7 @@ function WelcomePage({ setUser}) {
       <div className="welcome-container">
 
         <div className="welcome-text">
-          <h2>Explore the Metropolitan Museum of Art's public collection of over 470,000 works via their API. Save your pieces you love to your favorites.</h2>
+          <h2>Explore the Metropolitan Museum of Art's public collection of over 470,000 works via their API. Save the pieces you love to your favorites.</h2>
           <button
             onClick={() => setShowForm(!showForm)}
             className={showForm ? "selected-btn" : "welcome-btn"}

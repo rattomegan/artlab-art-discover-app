@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./FavoritesPage.css"
 import * as boardsAPI from "../../utilities/boards-api"
 import Board from "../../components/Board/Board"
 
@@ -19,7 +20,7 @@ function FavoritesPage() {
 
   return (
     <main>
-      <h1>Favorites</h1>
+      <h1 className="favorites-title">Favorites</h1>
       {allItems ?
         <Board allItems={allItems} totalItems={totalItems}/>
       :

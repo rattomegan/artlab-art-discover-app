@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
+import "./ItemDetail.css"
 
 
 function ItemDetail({ itemDetail, handleAddToFavorites, itemFromDb, handleRemoveFromFavorites }) {
 
+
   return (
-    <div className="ItemDetail container">
+    <div className="itemdetail-container">
       <div className="item-img">
         <img src={`${itemDetail.primaryImageSmall}`} alt={itemDetail.title} />
       </div>
@@ -18,12 +20,16 @@ function ItemDetail({ itemDetail, handleAddToFavorites, itemFromDb, handleRemove
       </div>
       {itemFromDb ? 
         // <p>"Item Added to Favorites"</p>
-        <button onClick={handleRemoveFromFavorites}>Remove from Favorites</button>
+        <button 
+          onClick={handleRemoveFromFavorites}
+          style={{backgroundColor: "peachpuff", color: "#333"}}
+          >Remove from Favorites
+        </button>
         : 
         <button onClick={() => handleAddToFavorites(itemDetail)}>Save to Favorites</button>
       }
       
-      <Link to="/">Back</Link>
+      <Link to="/" className="detail-back-link">Back</Link>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./ItemDetailPage.css"
 import * as boardsAPI from "../../utilities/boards-api"
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
@@ -45,7 +46,7 @@ function ItemDetailPage() {
           handleRemoveFromFavorites={handleRemoveFromFavorites}
         />
       :
-        "Loading..."
+        <h3 className="loading-text">Loading...</h3>
       }
     </>
   )
