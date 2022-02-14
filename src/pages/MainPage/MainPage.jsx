@@ -1,4 +1,5 @@
 import * as metAPI from "../../utilities/met-api"
+import "./MainPage.css"
 import { useState, useEffect } from "react";
 import Board from "../../components/Board/Board"
 import SearchBar from "../../components/SearchBar/SearchBar"
@@ -57,12 +58,16 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
         handleSearchClick={handleSearchClick}
       />
       {allItems ?
+      <>
         <Board allItems={allItems} totalItems={totalItems}/>
+        <Pagination totalItems={totalItems} currentPage={currentPage} setCurrentPage={setCurrentPage} updatePageInfo={updatePageInfo} />
+      </>
+
       :
-        <h2>Loading...</h2>
+        <h2 className="loading-text">Loading...</h2>
       }
 
-      <Pagination totalItems={totalItems} currentPage={currentPage} setCurrentPage={setCurrentPage} updatePageInfo={updatePageInfo} />
+
     </main>
   )
 };

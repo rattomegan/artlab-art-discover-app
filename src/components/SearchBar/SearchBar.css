@@ -3,8 +3,8 @@
   flex-wrap: wrap;
   /* gap: 1.2rem; */
   /* will need to hard-code the size of the search bar most likely */
-  border-bottom: .1rem solid #333;
-  margin-bottom: 3rem;
+  /* border-bottom: .1rem solid #333; */
+  margin-bottom: 1rem;
   margin-top: 1rem;
   padding-bottom: 1.4rem;
   min-height: 110px;
@@ -20,6 +20,11 @@
 .search-bar-container input {
   padding: .4rem;
   padding-right: 4rem;
+  background-color: transparent;
+  color: #333;
+  font-weight: bold;
+  border: none;
+  border-bottom: .3rem solid #333;
 }
 .search-bar-container{
   display: flex;

@@ -42,9 +42,16 @@ function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) 
     <div className="Pagination">
       <ul className="page-list">
         {pageNumbers.length > 5 && 
-          <button onClick={goToFirstPage}>Go to 1</button>
+          <button className="page-btn" onClick={goToFirstPage}> &#60;&#60; </button>
         }
-        <button onClick={goBackAPage}>Back</button>
+        {currentPage !== 1
+        &&
+          <button 
+            className="page-btn"
+            onClick={goBackAPage}>&#60;
+          </button>
+        }
+
         
         {/* This is filtering results to cut down on page numbers */}
         {/* {pageNumbers.filter((page, idx) => idx < 10).map(page => (
@@ -58,7 +65,7 @@ function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) 
           </li>
         ))} */}
 
-        {pageNumbers.filter((page) => page < (currentPage + 5) && page >= (currentPage - 4)).map(page => (
+        {pageNumbers.filter((page) => page < (currentPage + 3) && page >= (currentPage - 2)).map(page => (
           <li key={page} className="page-item">
             <button 
               className={`page-btn ${currentPage === page ? 'page-selected' : ''}` }
@@ -69,7 +76,7 @@ function Pagination({ totalItems, currentPage, setCurrentPage, updatePageInfo}) 
           </li>
         ))}
 
-      <button onClick={goForwardAPage}>Next</button>
+      <button className="page-btn" onClick={goForwardAPage}>&#62;</button>
       {/* <button>Go to last page</button> */}
       </ul>
     </div>

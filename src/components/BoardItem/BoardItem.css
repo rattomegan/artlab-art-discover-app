@@ -1,16 +1,11 @@
 .BoardItem {
-  flex: 1 1 150px;
-
-
-}
-
-
-.board-img {
-
   height: 150px;
-  border-radius: 0.1rem;
-  /* object-fit: cover */
+  /* width: 20rem; */
+  border-radius: 0.2rem;
+
 }
+
+
 
 /* .BoardItem {
   height: auto;
