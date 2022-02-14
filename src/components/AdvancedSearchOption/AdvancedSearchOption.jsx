@@ -13,14 +13,12 @@ function AdvancedSearchOption({ parameter, setSearchParameters, searchParameters
   }
 
   return (
-    <div className="AdvancedSearchOption">
-      <button
-        className={parameter.selected ? "selected" : ""}
-        onClick={() => handleSetSearchParamters(parameter)}
-      >
-        {parameter.display}
-      </button>
-    </div>
+    <button
+      className={parameter.selected ? "advanced-selected" : "advanced-button"}
+      onClick={() => handleSetSearchParamters(parameter)}
+    >
+      {parameter.display}
+    </button>
   )
 }
 
