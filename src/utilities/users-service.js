@@ -1,6 +1,6 @@
 // Import all named exports as a usersAPI object
 // This syntax can be helpful documenting where the methods come from
-import * as usersAPI from "./users-api";
+import * as usersAPI from './users-api';
 
 
 export async function signUp(userData) {
@@ -8,19 +8,19 @@ export async function signUp(userData) {
   // which will ultimately return a JSON Web Token (JWT)
   const token = await usersAPI.signUp(userData);
   // Save the token to local storage
-  localStorage.setItem("token", token);
+  localStorage.setItem('token', token);
   return getUser();
 }
 
 export async function login(credentials) {
   const token = await usersAPI.login(credentials);
   // Save the token to local storage
-  localStorage.setItem("token", token);
+  localStorage.setItem('token', token);
   return getUser();
 }
 
 export function logOut() {
-  localStorage.removeItem("token");
+  localStorage.removeItem('token');
 }
 
 export function getToken() {

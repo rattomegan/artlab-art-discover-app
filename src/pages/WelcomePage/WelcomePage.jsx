@@ -1,34 +1,32 @@
-import "./WelcomePage.css"
-import { useState } from "react";
-import AuthPage from "../AuthPage/AuthPage";
-import SlideShow from "../../components/SlideShow/SlideShow"
+import './WelcomePage.css';
+import { useState } from 'react';
+import AuthPage from '../AuthPage/AuthPage';
+import SlideShow from '../../components/SlideShow/SlideShow';
 
 function WelcomePage({ setUser}) {
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(false);
+
   return (
-    <div className="WelcomePage">
-      {/* title---------------- */}
-      <h1 className="welcome-title">Welcome to ArtLab</h1>
+    <div className='WelcomePage'>
+      <h1 className='welcome-title'>Welcome to ArtLab</h1>
+      <div className='welcome-container'>
 
-
-      <div className="welcome-container">
-
-        <div className="welcome-text">
+        <div className='welcome-text'>
           <h2>Explore the Metropolitan Museum of Art's public collection of over 470,000 works via their API. Save the pieces you love to your favorites.</h2>
           <button
             onClick={() => setShowForm(!showForm)}
-            className={showForm ? "selected-btn" : "welcome-btn"}
+            className={showForm ? 'selected-btn' : 'welcome-btn'}
             >
-            {showForm ? "Show Slideshow" : "Sign up or log in"}
+            {showForm ? 'Show Slideshow' : 'Sign up or log in'}
           </button>
         </div>
 
-        <div className="form-slide-container">
+        <div className='form-slide-container'>
           {showForm 
           ?
           <AuthPage setUser={setUser} />
           :
-          <div className="welcome-slideshow">
+          <div className='welcome-slideshow'>
               <SlideShow />
             </div>
           }
@@ -41,4 +39,4 @@ function WelcomePage({ setUser}) {
   )
 }
 
-export default WelcomePage
+export default WelcomePage;

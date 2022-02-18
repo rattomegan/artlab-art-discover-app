@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { signUp } from "../../utilities/users-service";
+import { useState } from 'react';
+import { signUp } from '../../utilities/users-service';
 
 export default function SignUpForm({ setUser }) {
   const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirm: "",
+    name: '',
+    email: '',
+    password: '',
+    confirm: '',
   });
   const [error, setError] = useState('');
 
@@ -33,26 +33,26 @@ export default function SignUpForm({ setUser }) {
 
     } catch {
       // An error occurred...
-      setError("Sign Up Failed - Try Again");
+      setError('Sign Up Failed - Try Again');
     }
   };
   
   return (
     <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" value={userData.name} onChange={handleChange} required />
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" value={userData.email} onChange={handleChange} required />
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" value={userData.password} onChange={handleChange} required />
-          <label htmlFor="confirm">Confirm:</label>
-          <input type="password" id="confirm" name="confirm" value={userData.confirm} onChange={handleChange} required />
-          <button type="submit" disabled={userData.password !== userData.confirm && "disable"}>SIGN UP</button>
+      <div className='form-container'>
+        <form autoComplete='off' onSubmit={handleSubmit}>
+          <label htmlFor='name'>Name:</label>
+          <input type='text' id='name' name='name' value={userData.name} onChange={handleChange} required />
+          <label htmlFor='email'>Email:</label>
+          <input type='email' id='email' name='email' value={userData.email} onChange={handleChange} required />
+          <label htmlFor='password'>Password:</label>
+          <input type='password' id='password' name='password' value={userData.password} onChange={handleChange} required />
+          <label htmlFor='confirm'>Confirm:</label>
+          <input type='password' id='confirm' name='confirm' value={userData.confirm} onChange={handleChange} required />
+          <button type='submit' disabled={userData.password !== userData.confirm && 'disable'}>SIGN UP</button>
         </form>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
+      <p className='error-message'>&nbsp;{error}</p>
     </div>
   );
 

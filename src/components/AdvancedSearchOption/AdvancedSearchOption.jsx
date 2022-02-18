@@ -1,4 +1,4 @@
-import "./AdvancedSearchOption.css"
+import './AdvancedSearchOption.css';
 
 function AdvancedSearchOption({ parameter, setSearchParameters, searchParameters }) {
 
@@ -14,7 +14,7 @@ function AdvancedSearchOption({ parameter, setSearchParameters, searchParameters
 
   return (
     <button
-      className={parameter.selected ? "advanced-selected" : "advanced-button"}
+      className={parameter.selected ? 'advanced-selected' : 'advanced-button'}
       onClick={() => handleSetSearchParamters(parameter)}
     >
       {parameter.display}
@@ -22,4 +22,4 @@ function AdvancedSearchOption({ parameter, setSearchParameters, searchParameters
   )
 }
 
-export default AdvancedSearchOption
+export default AdvancedSearchOption;

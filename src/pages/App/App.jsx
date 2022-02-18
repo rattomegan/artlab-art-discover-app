@@ -1,13 +1,12 @@
-import "./App.css";
-import { useState } from "react";
-import { getUser } from "../../utilities/users-service";
-import { Routes, Route } from "react-router-dom";
-import AuthPage from "../AuthPage/AuthPage";
-import WelcomePage from "../WelcomePage/WelcomePage";
-import MainPage from "../MainPage/MainPage";
-import NavBar from "../../components/NavBar/NavBar";
-import ItemDetailPage from "../ItemDetailPage/ItemDetailPage";
-import FavoritesPage from "../FavoritesPage/FavoritesPage";
+import './App.css';
+import { useState } from 'react';
+import { getUser } from '../../utilities/users-service';
+import { Routes, Route } from 'react-router-dom';
+import WelcomePage from '../WelcomePage/WelcomePage';
+import MainPage from '../MainPage/MainPage';
+import NavBar from '../../components/NavBar/NavBar';
+import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
+import FavoritesPage from '../FavoritesPage/FavoritesPage';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -24,14 +23,14 @@ function App() {
 
 
   return (
-    <main className="App">
+    <main className='App'>
       { 
         user ? 
         <>
           <NavBar user={user} setUser={setUser}/>
           <Routes>
             <Route 
-              path="/" 
+              path='/' 
               element={
                 <MainPage 
                   searchTerm={searchTerm} 
@@ -45,8 +44,8 @@ function App() {
             />      
             {/* /search/trees/page */}
             {/* the button onclick points to function that uses useNavigate hook */}
-            <Route path="/favorites" element={<FavoritesPage />} />
-            <Route path="/:objectID" element={<ItemDetailPage />} />
+            <Route path='/favorites' element={<FavoritesPage />} />
+            <Route path='/:objectID' element={<ItemDetailPage />} />
           </Routes>
         </>
         : 

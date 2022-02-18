@@ -1,11 +1,11 @@
-import "./SlideShow.css"
-import { useState, useEffect, useRef } from "react";
+import './SlideShow.css';
+import { useState, useEffect, useRef } from 'react';
 
 
 const images = [
-  "https://images.metmuseum.org/CRDImages/ep/web-large/DT47.jpg",
-  "https://images.metmuseum.org/CRDImages/ep/web-large/DT1494.jpg", 
-  "https://images.metmuseum.org/CRDImages/dp/web-large/DP805782.jpg",
+  'https://images.metmuseum.org/CRDImages/ep/web-large/DT47.jpg',
+  'https://images.metmuseum.org/CRDImages/ep/web-large/DT1494.jpg', 
+  'https://images.metmuseum.org/CRDImages/dp/web-large/DP805782.jpg',
 ]
 const delay = 4000;
 
@@ -35,24 +35,24 @@ function SlideShow() {
   }, [index]);
 
   return (
-    <div className="slideshow">
+    <div className='slideshow'>
       <div 
-        className="slideshowSlider"
+        className='slideshowSlider'
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
       >
         {images.map((image, idx) => (
-          <div className="slide">
-                      <img  key={idx} src={`${image}`} alt="image" />
+          <div className='slide'>
+                      <img  key={idx} src={`${image}`} alt='image' />
           </div>
 
         ))}
       </div>
 
-      <div className="slideshowDots">
+      <div className='slideshowDots'>
         {images.map((_, idx) => (
           <div 
             key={idx} 
-            className={`slideshowDot${index === idx ? " active" : ""}`}
+            className={`slideshowDot${index === idx ? ' active' : ''}`}
             onClick={() => {
               setIndex(idx);
             }}
@@ -63,4 +63,4 @@ function SlideShow() {
   );
 }
 
-export default SlideShow
+export default SlideShow;

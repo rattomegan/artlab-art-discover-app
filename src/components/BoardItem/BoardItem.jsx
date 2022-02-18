@@ -1,6 +1,5 @@
-// import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "./BoardItem.css";
+import { Link } from 'react-router-dom';
+import './BoardItem.css';
 
 function BoardItem({ item }) {
   return (
@@ -8,7 +7,7 @@ function BoardItem({ item }) {
     {item ?
     <div >
         <Link to={`/${item.objectID}`}>
-          <img className="BoardItem" src={item.primaryImageSmall}
+          <img className='BoardItem' src={item.primaryImageSmall}
           />
         </Link>
     </div>
@@ -22,4 +21,4 @@ function BoardItem({ item }) {
   )
 }
 
-export default BoardItem
+export default BoardItem;

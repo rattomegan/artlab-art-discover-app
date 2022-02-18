@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import "./ItemDetailPage.css"
-import * as boardsAPI from "../../utilities/boards-api"
-import ItemDetail from "../../components/ItemDetail/ItemDetail";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import './ItemDetailPage.css';
+import * as boardsAPI from '../../utilities/boards-api';
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
 
 function ItemDetailPage() {
-  const [itemDetail, setItemDetail] = useState('')
-  const [itemFromDb, setItemFromDb] = useState(null)
+  const [itemDetail, setItemDetail] = useState('');
+  const [itemFromDb, setItemFromDb] = useState(null);
   let { objectID } = useParams();
 
   useEffect(() => {
@@ -46,10 +46,10 @@ function ItemDetailPage() {
           handleRemoveFromFavorites={handleRemoveFromFavorites}
         />
       :
-        <h3 className="loading-text">Loading...</h3>
+        <h3 className='loading-text'>Loading...</h3>
       }
     </>
   )
 }
 
-export default ItemDetailPage
+export default ItemDetailPage;

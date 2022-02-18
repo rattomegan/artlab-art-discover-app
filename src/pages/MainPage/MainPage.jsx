@@ -1,14 +1,14 @@
-import * as metAPI from "../../utilities/met-api"
-import "./MainPage.css"
-import { useState, useEffect } from "react";
-import Board from "../../components/Board/Board"
-import SearchBar from "../../components/SearchBar/SearchBar"
-import Pagination from "../../components/Pagination/Pagination"
+import * as metAPI from '../../utilities/met-api';
+import './MainPage.css';
+import { useState, useEffect } from 'react';
+import Board from '../../components/Board/Board';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import Pagination from '../../components/Pagination/Pagination';
 
 function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParameters, currentPage, setCurrentPage }) {
   const [allItems, setAllItems] = useState(null);
-  const [totalItems, setTotalItems] = useState(0)
-  const ITEMS_PER_PAGE = 30 
+  const [totalItems, setTotalItems] = useState(0);
+  const ITEMS_PER_PAGE = 30;
 
 
   useEffect(() => {
@@ -64,7 +64,7 @@ function MainPage({ searchTerm, setSearchTerm, searchParameters, setSearchParame
       </>
 
       :
-        <h2 className="loading-text">Loading...</h2>
+        <h2 className='loading-text'>Loading...</h2>
       }
 
 

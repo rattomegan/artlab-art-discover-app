@@ -19,7 +19,7 @@ async function addToBoard(req, res) {
 
 async function findItemInBoard(req, res) {
   const board = await Board.getBoard(req.user._id);
-  const itemDb = await board.findItemFromBoard(req.params.id)
+  const itemDb = await board.findItemFromBoard(req.params.id);
 
   res.json(itemDb)
 }
@@ -27,7 +27,7 @@ async function findItemInBoard(req, res) {
 
 async function deleteItemFromBoard(req, res) {
   const board = await Board.getBoard(req.user._id);
-  board.items.remove( {_id: req.params.id } )
+  board.items.remove( {_id: req.params.id } );
   board.save();
   res.json(board);
 }
@@ -35,6 +35,6 @@ async function deleteItemFromBoard(req, res) {
 
 async function indexItems(req, res) {
   const board = await Board.getBoard(req.user._id);
-  const items = await board.getItemDetails()
-  res.json(items)
+  const items = await board.getItemDetails();
+  res.json(items);
 }
