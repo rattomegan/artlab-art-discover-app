@@ -6,7 +6,7 @@ This project consumes the Metropolitan Museum's Open Source API to allow a user 
 
 Once logged in, you can search by keyword or a category listed above. Each search will return 30 results or less (to limit load on API). You can browse all results by scrolling through each page.
 
-
+[Click here to view the app!](https://artlab.herokuapp.com/)
 [Trello Planning Board](https://trello.com/b/yvHVqPqk/art-lab-art-cart)
 
 ## Screenshots
